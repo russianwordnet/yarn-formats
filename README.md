@@ -1,4 +1,4 @@
-yarn-formats
+YARN Schemas
 ============
 
 YARN formats' specifications.
