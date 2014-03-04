@@ -64,7 +64,7 @@
 										</xs:simpleContent>
 									</xs:complexType>
 								</xs:element>
-								<xs:element maxOccurs="unbounded" minOccurs="0" name="sample">
+								<xs:element maxOccurs="unbounded" minOccurs="0" name="example">
 									<xs:complexType>
 										<xs:simpleContent>
 											<xs:extension base="xs:string">

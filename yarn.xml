@@ -41,9 +41,9 @@
 					Самка кота.
 				</definition>
 				<definition url="http://ru.wiktionary.org/wiki/кошка"/>
-				<sample url="http://e1.ru/forums" source="Пушкин">sadfsfdsd</sample>
-				<sample source="Пушкин">sadfsfdsd</sample>
-				<sample>sadfsfdsd</sample>
+				<example url="http://e1.ru/forums" source="Пушкин">sadfsfdsd</example>
+				<example source="Пушкин">sadfsfdsd</example>
+				<example>sadfsfdsd</example>
 			</word>
 			<pwn synsetId="12345678"/>
 		</synsetEntry>
