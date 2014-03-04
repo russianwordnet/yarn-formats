@@ -31,28 +31,29 @@
 			<!-- слов может не быть вообще. Например: "столовые приборы", для объединения вилки и ложки связями is_a-->
 			<word ref="n3" nonStandardGrammar="true">
 				<mark>устар</mark> <!-- помета всегда внутри синсета, а не у самого слова -->
+				<definition url="http://ru.wikipedia.org/wiki/Кошка" source="wikipedia">
+					домашнее животное, одно из наиболее популярных (наряду с собакой) «животных-компаньонов»
+				</definition>
+				<definition>
+					Говорит мяу-мяу. (Это определение придумал один из редакторов yarn-а. Поэтому у него нет ни источника, ни url-а.)
+				</definition>
+				<definition source="Толковый словарь Ушакова">
+					Самка кота.
+				</definition>
+				<definition url="http://ru.wiktionary.org/wiki/кошка"/>
 				<sample url="http://e1.ru/forums" source="Пушкин">sadfsfdsd</sample>
 				<sample source="Пушкин">sadfsfdsd</sample>
 				<sample>sadfsfdsd</sample>
 			</word>
-			<word ref="n1"/>
-			<definition url="http://ru.wikipedia.org/wiki/Кошка" source="wikipedia">
-				домашнее животное, одно из наиболее популярных (наряду с собакой) «животных-компаньонов»
-			</definition>
-			<definition>
-				Говорит мяу-мяу. (Это определение придумал один из редакторов yarn-а. Поэтому у него нет ни источника, ни url-а.)
-			</definition>
-			<definition source="Толковый словарь Ушакова">
-				Самка кота.
-			</definition>
-			<definition url="http://ru.wiktionary.org/wiki/кошка"/>
 			<pwn synsetId="12345678"/>
 		</synsetEntry>
 		
 		<synsetEntry id="sn2" approvedBy="pb" approvedWhen="2012-12-26T17:14:00Z" author="pb" version="2" timestamp="2012-12-26T17:12:00Z">
-			<definition>
-				Коммутативное кольцо без единицы. Слов, для описания этого смысла нет.
-			</definition>
+			<word ref="n1">
+				<definition>
+					Коммутативное кольцо без единицы. Слов, для описания этого смысла нет.
+				</definition>
+			</word>
 		</synsetEntry>
 	</synsets>
 

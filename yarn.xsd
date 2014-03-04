@@ -1,7 +1,5 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified"
-					 xmlns:xs="http://www.w3.org/2001/XMLSchema"
-					 >
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" attributeFormDefault="unqualified" elementFormDefault="qualified">
 
 	<xs:complexType name="Entry">
 		<xs:annotation>
@@ -10,21 +8,21 @@
 				Entry — единица, которую можно отредактировать и этот факт будет отражен в истории изменений.
 			</xs:documentation>
 		</xs:annotation>
-		<xs:attribute name="id" type="xs:ID" use="required" />
+		<xs:attribute name="id" type="xs:ID" use="required"/>
 		<xs:attribute name="approvedBy" type="xs:string" use="optional"/>
-		<xs:attribute name="approvedWhen" type="xs:dateTime" use="optional" />
-		<xs:attribute name="author" type="xs:string" use="required" />
-		<xs:attribute name="version" type="xs:decimal" use="required" />
-		<xs:attribute name="deleted" type="xs:boolean" use="optional" default="false" />
-		<xs:attribute name="timestamp" type="xs:dateTime" use="required" />
+		<xs:attribute name="approvedWhen" type="xs:dateTime" use="optional"/>
+		<xs:attribute name="author" type="xs:string" use="required"/>
+		<xs:attribute name="version" type="xs:decimal" use="required"/>
+		<xs:attribute default="false" name="deleted" type="xs:boolean" use="optional"/>
+		<xs:attribute name="timestamp" type="xs:dateTime" use="required"/>
 	</xs:complexType>
 
 	<xs:complexType name="WordEntry">
 		<xs:complexContent>
 			<xs:extension base="Entry">
 				<xs:sequence>
-					<xs:element minOccurs="1" maxOccurs="1" name="word" type="xs:string" />
-					<xs:element minOccurs="0" maxOccurs="1" name="grammar" type="xs:string">
+					<xs:element maxOccurs="1" minOccurs="1" name="word" type="xs:string"/>
+					<xs:element maxOccurs="1" minOccurs="0" name="grammar" type="xs:string">
 						<xs:annotation>
 							<xs:documentation>
 								По классификации Зализняка в нотации wiktionary http://ru.wiktionary.org/wiki/Викисловарь:Использование_словаря_Зализняка 
@@ -32,8 +30,8 @@
 							</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element minOccurs="0" maxOccurs="unbounded" name="accent" type="xs:unsignedByte" />
-					<xs:element minOccurs="0" maxOccurs="unbounded" name="url" type="xs:anyURI" />
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="accent" type="xs:unsignedByte"/>
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="url" type="xs:anyURI"/>
 				</xs:sequence>
 			</xs:extension>
 		</xs:complexContent>
@@ -52,15 +50,25 @@
 		<xs:complexContent>
 			<xs:extension base="Entry">
 				<xs:sequence>
-					<xs:element minOccurs="0" maxOccurs="unbounded" name="word">
+					<xs:element maxOccurs="unbounded" minOccurs="0" name="word">
 						<xs:complexType>
-							<xs:sequence minOccurs="0" maxOccurs="1">
-								<xs:element minOccurs="0" maxOccurs="unbounded" name="mark" type="Mark"/>
-								<xs:element minOccurs="0" maxOccurs="unbounded" name="sample">
+							<xs:sequence maxOccurs="1" minOccurs="0">
+								<xs:element maxOccurs="unbounded" minOccurs="0" name="mark" type="Mark"/>
+								<xs:element maxOccurs="unbounded" minOccurs="1" name="definition">
 									<xs:complexType>
 										<xs:simpleContent>
 											<xs:extension base="xs:string">
-												<xs:attribute name="url" type="xs:anyURI" use="optional" />
+												<xs:attribute name="url" type="xs:anyURI" use="optional"/>
+												<xs:attribute name="source" type="xs:string" use="optional"/>
+											</xs:extension>
+										</xs:simpleContent>
+									</xs:complexType>
+								</xs:element>
+								<xs:element maxOccurs="unbounded" minOccurs="0" name="sample">
+									<xs:complexType>
+										<xs:simpleContent>
+											<xs:extension base="xs:string">
+												<xs:attribute name="url" type="xs:anyURI" use="optional"/>
 												<xs:attribute name="source" type="xs:string" use="optional">
 													<xs:annotation>
 														<xs:documentation>Источник, не имеющий URL-а. Например, "Толковый словарь Ушакова"</xs:documentation>
@@ -71,8 +79,8 @@
 									</xs:complexType>
 								</xs:element>
 							</xs:sequence>
-							<xs:attribute name="ref" type="xs:IDREF" use="required" />
-							<xs:attribute name="nonStandardGrammar" type="xs:boolean" use="optional" default="false">
+							<xs:attribute name="ref" type="xs:IDREF" use="required"/>
+							<xs:attribute default="false" name="nonStandardGrammar" type="xs:boolean" use="optional">
 								<xs:annotation>
 									<xs:documentation>
 										Пометка о том, что в этом смысле, грамматическая информация как-то искажается. 
@@ -84,22 +92,12 @@
 							</xs:attribute>
 						</xs:complexType>
 					</xs:element>
-					<xs:element minOccurs="1" maxOccurs="unbounded" name="definition">
-						<xs:complexType>
-							<xs:simpleContent>
-								<xs:extension base="xs:string">
-									<xs:attribute name="url" type="xs:anyURI" use="optional" />
-									<xs:attribute name="source" type="xs:string" use="optional" />
-								</xs:extension>
-							</xs:simpleContent>
-						</xs:complexType>
-					</xs:element>
-					<xs:element minOccurs="0" maxOccurs="1" name="pwn">
+					<xs:element maxOccurs="1" minOccurs="0" name="pwn">
 						<xs:annotation>
 							<xs:documentation>Номер соответсвтующего синсета в Принстанском wordnet-е</xs:documentation>
 						</xs:annotation>
 						<xs:complexType>
-							<xs:attribute name="synsetId" type="xs:string" use="required" />
+							<xs:attribute name="synsetId" type="xs:string" use="required"/>
 						</xs:complexType>
 					</xs:element>
 				</xs:sequence>
@@ -110,13 +108,13 @@
 	<xs:complexType name="SynsetRelationEntry">
 		<xs:complexContent>
 			<xs:extension base="Entry">
-				<xs:attribute name="synset1" type="xs:IDREF" use="required" />
+				<xs:attribute name="synset1" type="xs:IDREF" use="required"/>
 				<xs:attribute name="type" use="required">
 					<xs:simpleType>
 						<xs:restriction base="xs:string">
-							<xs:enumeration value="is_a" />
-							<xs:enumeration value="part_of" />
-							<xs:enumeration value="antonym" />
+							<xs:enumeration value="is_a"/>
+							<xs:enumeration value="part_of"/>
+							<xs:enumeration value="antonym"/>
 							<xs:enumeration value="sister">
 								<xs:annotation>
 									<xs:documentation>
@@ -128,7 +126,7 @@
 						</xs:restriction>
 					</xs:simpleType>
 				</xs:attribute>
-				<xs:attribute name="synset2" type="xs:IDREF" use="required" />
+				<xs:attribute name="synset2" type="xs:IDREF" use="required"/>
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
@@ -136,7 +134,7 @@
 	<xs:complexType name="WordRelationEntry">
 		<xs:complexContent>
 			<xs:extension base="Entry">
-				<xs:attribute name="word1" type="xs:IDREF" use="required" />
+				<xs:attribute name="word1" type="xs:IDREF" use="required"/>
 				<xs:attribute name="type" use="required">
 					<xs:simpleType>
 						<xs:restriction base="xs:string">
@@ -144,7 +142,7 @@
 						</xs:restriction>
 					</xs:simpleType>
 				</xs:attribute>
-				<xs:attribute name="word2" type="xs:IDREF" use="required" />
+				<xs:attribute name="word2" type="xs:IDREF" use="required"/>
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
@@ -155,28 +153,28 @@
 				<xs:element name="words">
 					<xs:complexType>
 						<xs:sequence>
-							<xs:element minOccurs="0" maxOccurs="unbounded" name="wordEntry" type="WordEntry" />
+							<xs:element maxOccurs="unbounded" minOccurs="0" name="wordEntry" type="WordEntry"/>
 						</xs:sequence>
 					</xs:complexType>
 				</xs:element>
 				<xs:element name="synsets">
 					<xs:complexType>
 						<xs:sequence>
-							<xs:element minOccurs="0" maxOccurs="unbounded" name="synsetEntry" type="SynsetEntry"/>
+							<xs:element maxOccurs="unbounded" minOccurs="0" name="synsetEntry" type="SynsetEntry"/>
 						</xs:sequence>
 					</xs:complexType>
 				</xs:element>
 				<xs:element name="synsetRelations">
 					<xs:complexType>
 						<xs:sequence>
-							<xs:element minOccurs="0" maxOccurs="unbounded" name="relationEntry" type="SynsetRelationEntry" />
+							<xs:element maxOccurs="unbounded" minOccurs="0" name="relationEntry" type="SynsetRelationEntry"/>
 						</xs:sequence>
 					</xs:complexType>
 				</xs:element>
 				<xs:element name="wordRelations">
 					<xs:complexType>
 						<xs:sequence>
-							<xs:element minOccurs="0" maxOccurs="unbounded" name="wordRelationsEntry" type="WordRelationEntry"/>
+							<xs:element maxOccurs="unbounded" minOccurs="0" name="wordRelationsEntry" type="WordRelationEntry"/>
 						</xs:sequence>
 					</xs:complexType>
 				</xs:element>
