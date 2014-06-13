@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<yarn>
+<yarn xmlns="http://russianword.net" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://russianword.net/yarn.xsd">
 	<words>
 		<wordEntry id="n1" approvedBy="pb" approvedWhen="2012-12-26T17:14:00Z" author="pb" version="2" timestamp="2012-12-26T17:12:00Z">
 			<!--первая буква в id: n, a, v — существительные, прилагательные и глаголы-->
