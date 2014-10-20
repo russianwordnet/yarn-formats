@@ -45,7 +45,6 @@
 				<example source="Пушкин">sadfsfdsd</example>
 				<example>sadfsfdsd</example>
 			</word>
-			<pwn synsetId="12345678"/>
 		</synsetEntry>
 		
 		<synsetEntry id="sn2" approvedBy="pb" approvedWhen="2012-12-26T17:14:00Z" author="pb" version="2" timestamp="2012-12-26T17:12:00Z">
@@ -54,6 +53,7 @@
 					Коммутативное кольцо без единицы. Слов, для описания этого смысла нет.
 				</definition>
 			</word>
+			<interlink source="a" ref="ring" />
 		</synsetEntry>
 	</synsets>
 
